@@ -1,20 +1,20 @@
-import { View, StyleSheet, Text, TouchableOpacity, } from "react-native";
+import { View, StyleSheet, Text, TouchableOpacity, TouchableOpacityProps, } from "react-native";
 
 
-type Props = {
+type Props = TouchableOpacityProps &{
     text: string;
 }
 
-export default function ButtonHome({ text }:Props) {
+export default function ButtonHome({ text, ...rest }:Props) {
     return (
-        <TouchableOpacity>
+        <TouchableOpacity {...rest}>
             <View style={styles.container}>
                 <View style={styles.text}>
                     <Text>{text}</Text>
                 </View>
-                    <View style={styles.arrow}>
-                        <Text> {">"} </Text>
-                    </View>
+                <View style={styles.arrow}>
+                    <Text> {">"} </Text>
+                </View>
          </View>
         </TouchableOpacity>
     );
@@ -22,12 +22,13 @@ export default function ButtonHome({ text }:Props) {
 
 const styles = StyleSheet.create({
 container: {
-    borderWidth: 1,
+    
     flexDirection:"row",
     padding: 10,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: "#7BFF90",
     borderRadius: 10,
     alignItems: 'center',
+    width: "100%",
    
 },
 
@@ -37,7 +38,10 @@ arrow:{
 },
 
 text:{
-    flex:1
+    flex:1,
+    justifyContent: "center",
+    alignItems: "center",
+
 },
 
 

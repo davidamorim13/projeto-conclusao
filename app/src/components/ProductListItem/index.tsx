@@ -1,16 +1,16 @@
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, TouchableOpacityProps } from "react-native";
 
-type Props = {
+type Props = TouchableOpacityProps & {
     text: string;
+    price: number;
 }
 
-export default function ProductsListItem({ text }:Props) {
+export default function ProductsListItem({ text, price }:Props) {
     return (
         <TouchableOpacity>
             <View style={styles.container}>
                 <View style={styles.text}>
-                    <Text>{text}</Text>
-                    <Text> R$ </Text>
+                    <Text>{text} = {price}</Text>
                 </View>
                     <View style={styles.arrow}>
                         <Text> {">"} </Text>
@@ -22,16 +22,18 @@ export default function ProductsListItem({ text }:Props) {
 
 const styles = StyleSheet.create({
     container:{
-        borderWidth: 1,
+       
         justifyContent:"space-between",
         alignItems:"center",
         flexDirection:"row",
         padding: 10,
-        backgroundColor: "#FFFF",
+        backgroundColor: "#7BFF90",
         borderRadius: 10,
+        width: "100%",
     },
     text:{
-        flex:1.
+        flex:1,
+        
     },
     arrow:{  
         padding:10,

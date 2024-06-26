@@ -1,12 +1,17 @@
 import { View, StyleSheet, Text } from "react-native";
 import Buttongerenciamento from "../../components/ButtonHome";
 import { useNavigation } from "@react-navigation/native";
+import { useEffect, useState } from "react";
+import { Products } from "../Products";
+import { ProductsService } from "../../services/products.service";
 
-
+type Product ={
+    name: string;
+    price: number;
+}
 export function Home() {
 
-    const {navigate} = useNavigation<any>()
-
+    const { navigate } = useNavigation<any>()
     return (  
         
         <View style={styles.container}>

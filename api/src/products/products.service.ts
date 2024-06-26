@@ -32,6 +32,14 @@ export class ProductsService {
         ean: "123456789",
         createdAt: new Date,
         updateAt: new Date,
+      },
+      {
+        name: "Maçã",
+        price: "3",
+        code: "123",
+        ean: "123456789",
+        createdAt: new Date,
+        updateAt: new Date,
       }
     ]
   }

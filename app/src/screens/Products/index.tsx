@@ -1,5 +1,7 @@
 import { View, Text, StyleSheet } from "react-native";
 import ProductsListItem from "../../components/ProductListItem";
+import { useEffect, useState } from "react";
+import { ProductsService } from "../../services/products.service";
 
 type Product = {
     name: string;
@@ -7,17 +9,21 @@ type Product = {
 }
 
 export function Products() {
-    const products= [
-        {
-            name:'Alface',
-            price: 2.50,
-        },
+    const [products, setProducts] = useState<any>([])
 
-        {
-            name: 'Tomate',
-            price: 6.00,
+    const buscarProdutos = async () => {
+        try{
+            const data = await ProductsService.getAll()
+            setProducts(data)
+        }catch(erro){
+
         }
-    ]
+    }
+
+    useEffect(() => {
+        buscarProdutos()
+    },[])
+
 
     return (
         
